@@ -1,0 +1,18 @@
+{% extends "AppCorredoresRiojaBundle:Organizacion:organizaciones1.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/appcorredoresrioja/css/formulario.css')}}" rel="stylesheet" media="all" type="text/css">
+{% endblock %}
+{% block English %}<a href="{{ path('organizacion_registro.en') }}">{% endblock %}
+{% block Español %}<a href="{{ path('organizacion_registro.es') }}">{% endblock %}
+
+{% block body %}
+        <div class="clear"> </div>   
+    <h1>Nueva Organización</h1>
+    <form action="{{ path('organizacion_registro') }}" method="post" {{ form_enctype(formulario) }}>
+    {{ form_widget(formulario) }}
+    <input class="button" type="submit" value="Registro"/>
+   </form>
+    <div class="clear"> </div>   
+{% endblock %} 

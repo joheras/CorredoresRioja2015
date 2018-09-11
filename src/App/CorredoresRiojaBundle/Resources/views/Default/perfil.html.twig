@@ -1,0 +1,19 @@
+{% extends "AppCorredoresRiojaBundle:Default:corredores1.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/appcorredoresrioja/css/formulario.css')}}" rel="stylesheet" media="all" type="text/css">
+{% endblock %}
+
+{% block English %}<a href="{{ path('corredor_perfil.en') }}">{% endblock %}
+{% block Español %}<a href="{{ path('corredor_perfil.es') }}">{% endblock %}
+
+{% block body %}
+        <div class="clear"> </div>   
+    <h1>Perfil</h1>
+    <form action="{{ path('corredor_perfil') }}" method="post" {{ form_enctype(formulario) }}>
+    {{ form_widget(formulario) }}
+    <input class="button" type="submit" value="Guardar cambios"/>
+   </form>
+    <div class="clear"> </div>   
+{% endblock %} 

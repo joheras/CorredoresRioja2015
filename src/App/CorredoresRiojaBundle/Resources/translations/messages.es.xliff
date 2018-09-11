@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="es" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1">
+                <source>contacto</source>
+                <target>Contacto</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>zonacorredores</source>
+                <target>Zona Corredores</target>
+            </trans-unit>
+            <trans-unit id="3">
+                <source>zonaorganizadores</source>
+                <target>Zona Organizadores</target>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>portada</source>
+                <target>Portada</target>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>perfil</source>
+                <target>Perfil</target>
+            </trans-unit>
+            <trans-unit id="6">
+                <source>carreras</source>
+                <target>Carreras</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>miscarreras</source>
+                <target>Mis carreras</target>
+            </trans-unit>
+            <trans-unit id="8">
+                <source>anadircarrera</source>
+                <target>Añadir carrera</target>
+            </trans-unit>
+            <trans-unit id="9">
+                <source>modificarcarrera</source>
+                <target>Modificar carrera</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

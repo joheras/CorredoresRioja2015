@@ -1,0 +1,80 @@
+portada:
+    locales: { en : /en/welcome, es : /es/portada }
+    defaults: { _controller: AppCorredoresRiojaBundle:Default:index }
+    
+show_carreras:
+    locales: { en : /en/runners/races, es : /es/corredores/carreras }
+    defaults: { _controller: AppCorredoresRiojaBundle:Default:carreras }
+    
+show_carrera:
+    locales: { en : "/en/runners/race/{slug}", es : "/es/corredores/carreras/{slug}" }
+    defaults: { _controller: AppCorredoresRiojaBundle:Default:carrera }    
+
+show_organizacion:
+    locales: { en : "/en/runners/en/organizations/{slug}", es : "/es/corredores/organizacion/{slug}" }
+    defaults: { _controller: AppCorredoresRiojaBundle:Default:organizacion }        
+
+show_miscarreras:
+    locales: { en : "/en/runners/myraces", es : "/es/corredores/miscarreras" }
+    defaults: { _controller: AppCorredoresRiojaBundle:Default:miscarreras }    
+
+
+registro:
+    locales: { en : /en/runners/register, es : /es/corredores/registro }
+    defaults: { _controller: AppCorredoresRiojaBundle:Default:registro }
+    
+corredor_login:
+    locales: { en : /en/runners/login, es : /es/corredores/login }
+    defaults: { _controller: AppCorredoresRiojaBundle:Default:login }
+
+corredor_login_check:
+    locales: { en : /en/runners/login_check, es : /es/corredores/login_check }
+    
+corredor_logout:
+    locales: { en : /en/runners/logout, es : /es/corredores/logout }
+    
+inscribir_corredor:
+    locales: { en : "/en/runners/race-register/{slug}", es : "/es/corredores/inscribir/{slug}" }
+    defaults: { _controller: AppCorredoresRiojaBundle:Default:inscribir }
+
+desapuntar_corredor:
+    locales: { en : "/en/runners/quit/{slug}", es : "/es/corredores/desapuntar/{slug}" }
+    defaults: { _controller: AppCorredoresRiojaBundle:Default:desapuntar }
+    
+corredor_perfil:
+    locales: { en : /en/runners/profile, es : /es/corredores/perfil }
+    defaults: { _controller: AppCorredoresRiojaBundle:Default:perfil }
+    
+organizacion_login:
+    locales: { en : /en/organizations/login, es : /es/organizaciones/login }
+    defaults: { _controller: AppCorredoresRiojaBundle:Organizacion:login }
+
+organizacion_login_check:
+    locales: { en : /en/organizations/login_check, es : /es/organizaciones/login_check }
+    
+organizacion_logout:
+    locales: { en : /en/organizations/logout, es : /es/organizaciones/logout }
+  
+organizacion_registro:
+    locales: { en : /en/organizations/register, es : /es/organizaciones/registro }
+    defaults: { _controller: AppCorredoresRiojaBundle:Organizacion:registro }    
+    
+organizacion_portada:
+    locales: { en : /en/organizations, es : /es/organizaciones }
+    defaults: { _controller: AppCorredoresRiojaBundle:Organizacion:portada }    
+    
+organizacion_perfil:
+    locales: { en : /en/organizations/profile, es : /es/organizaciones/perfil }
+    defaults: { _controller: AppCorredoresRiojaBundle:Organizacion:perfil }    
+    
+anadir_carrera:
+    locales: { en : /en/organizations/new_race, es : /es/organizaciones/nueva_carrera }
+    defaults: { _controller: AppCorredoresRiojaBundle:Organizacion:nuevaCarrera }    
+    
+modificar_carrera:
+    locales: { en : "/en/organizations/modify_race/{slug}", es : "/es/organizaciones/modificar_carrera/{slug}" }
+    defaults: { _controller: AppCorredoresRiojaBundle:Organizacion:modificarCarrera }    
+    
+modificarcarreras:
+    locales: { en : /en/organizations/modify_races, es : /es/organizaciones/modificar_carreras }
+    defaults: { _controller: AppCorredoresRiojaBundle:Organizacion:modificarCarreras }    

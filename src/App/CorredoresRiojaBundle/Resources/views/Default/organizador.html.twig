@@ -1,0 +1,28 @@
+{% extends "AppCorredoresRiojaBundle:Default:corredores1.html.twig" %}
+
+{% block migas %}
+    <div class="clear"></div> 
+{% endblock %}
+
+{% block English %}<a href="{{ path('show_organizacion.en',{'slug':organizacion.slug}) }}">{% endblock %}
+{% block Español %}<a href="{{ path('show_organizacion.es',{'slug':organizacion.slug}) }}">{% endblock %}
+
+{% block body %}
+    <div class="centro">
+        <h1>{{ organizacion.nombre }}</h1>
+        <p>{{ organizacion.nombre }}</p>
+        <p><a href="mailto:{{ organizacion.email }}">Contacta</a></p>
+        <p>Carreras organizadas:</p>
+        <ol>
+        {% for carrera in carreras %}
+            <li><a href="{{ path('show_carrera',{'slug':carrera.slug}) }}">{{ carrera.nombre }}</a></li>
+        {% endfor %}    
+        </ol>
+    </div>
+
+
+
+
+
+    <div class="clear"> </div>   
+{% endblock %} 

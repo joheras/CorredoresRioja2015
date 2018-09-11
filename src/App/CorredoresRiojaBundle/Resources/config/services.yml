@@ -1,0 +1,57 @@
+services:
+    carrerasrepository:
+         alias: carrerasrepository.doctrine
+    carrerasrepository.inmemory:
+         class: App\CorredoresRiojaDomain\Repository\Infrastructure\InMemoryCarreraRepository
+         public: false
+    carrerasrepository.doctrine:
+         class: App\CorredoresRiojaDomain\Repository\Infrastructure\DoctrineCarreraRepository
+         public: false
+         arguments: [ "@doctrine.orm.entity_manager" ]      
+         
+    organizacionesrepository:
+         alias: organizacionesrepository.doctrine
+    organizacionesrepository.inmemory:
+         class: App\CorredoresRiojaDomain\Repository\Infrastructure\InMemoryOrganizacionRepository
+         public: false
+    organizacionesrepository.doctrine:
+         class: App\CorredoresRiojaDomain\Repository\Infrastructure\DoctrineOrganizacionRepository
+         public: false
+         arguments: [ "@doctrine.orm.entity_manager" ]        
+    
+    participantesrepository:
+         alias: participantesrepository.doctrine
+    participantesrepository.inmemory:
+         class: App\CorredoresRiojaDomain\Repository\Infrastructure\InMemoryParticipanteRepository
+         public: false
+    participantesrepository.doctrine:
+         class: App\CorredoresRiojaDomain\Repository\Infrastructure\DoctrineParticipanteRepository
+         public: false
+         arguments: [ "@doctrine.orm.entity_manager" ]     
+    
+    corredoresrepository:
+         alias: corredoresrepository.doctrine
+    corredoresrepository.inmemory:
+         class: App\CorredoresRiojaDomain\Repository\Infrastructure\InMemoryCorredorRepository
+         public: false
+    corredoresrepository.doctrine:
+         class: App\CorredoresRiojaDomain\Repository\Infrastructure\DoctrineCorredorRepository
+         public: false
+         arguments: [ "@doctrine.orm.entity_manager" ]
+
+
+    corredores_user_provider:
+        class : App\CorredoresRiojaBundle\Security\CorredorUserProvider
+        arguments: ["@corredoresrepository"]
+
+    organizadores_user_provider:
+        class : App\CorredoresRiojaBundle\Security\OrganizacionUserProvider
+        arguments: ["@organizacionesrepository"]
+        
+    modificarcarrera.ownervoter:
+        class: App\CorredoresRiojaBundle\Security\Voters\OwnerVoter
+        tags:
+            - { name: security.voter }
+    registroemail:
+        class : App\CorredoresRiojaBundle\Utils\SendMail
+        arguments: ["@mailer"]

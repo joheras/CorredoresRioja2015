@@ -1,0 +1,74 @@
+{% extends "AppCorredoresRiojaBundle:Organizacion:organizaciones1.html.twig" %}
+
+
+{% block English %}<a href="{{ path('organizacion_portada.en') }}">{% endblock %}
+{% block Español %}<a href="{{ path('organizacion_portada.es') }}">{% endblock %}
+
+                       
+{% block body %}
+    
+      {% for mensaje in app.session.flashbag.get('info') %} 
+       <p clas="info">{{ mensaje }}</p> 
+   {% endfor %} 
+   
+     <div class="clear"></div>   
+      {% if app.user and is_granted('ROLE_ORGANIZADOR') %}
+     <h1>Bienvenido, estas son las carreras que has organizado</h1>
+ {% endif %} 
+ 
+ <h2>Carreras por disputar</h2>
+ <div class="centro"/>
+ <ul>
+     <li class="columna">
+         <ul>
+ {% for carrera in carreraspordisputar %}
+     
+     <li class="celda">
+         <div class="parteCelda">
+             <img src="{{ asset('bundles/appcorredoresrioja/images/' ~ carrera.imagen) }}"/>
+         </div>
+         <div class="parteCelda2">
+             <h3><a href="{{ path('show_carrera', {'slug':carrera.slug}) }}">{{ carrera.nombre }}</a></h3>
+             <p>{{ carrera.fechacelebracion | date('Y/m/d h:m') }}</p>
+             <div style="float:right; padding:10px 5px">
+                      <a style="padding:5px 8px 5px 10px;background:#5C7E6D;color:#FFF" 
+                         href="{{ path('modificar_carrera', {'slug':carrera.slug}) }}" ><span>Modificar</span> </a>
+            </div>
+         </div>    
+     </li>
+ {% else %}    
+     <p>No hay carreras en esta categoría</p>
+ {% endfor %}
+ </ul>
+     </li>
+ </ul>
+</div>
+ <div class="clear"></div>   
+ <h2>Carreras disputadas</h2>
+<div class="centro"/>
+ <ul>
+     <li class="columna">
+         <ul>
+ {% for carrera in carrerasdisputadas %}
+     <li class="celda">
+         <div class="parteCelda">
+             <img src="{{ asset('bundles/appcorredoresrioja/images/' ~ carrera.imagen) }}"/>
+         </div>
+         <div class="parteCelda2">
+             <h3><a href="{{ path('show_carrera', {'slug':carrera.slug}) }}">{{ carrera.nombre }}</a></h3>
+             <p>{{ carrera.fechacelebracion | date('Y/m/d h:m') }}</p>
+             <div style="float:right; padding:10px 5px">
+                      <a style="padding:5px 8px 5px 10px;background:#5C7E6D;color:#FFF" 
+                         href="{{ path('show_carrera', {'slug':carrera.slug}) }}" ><span>Clasificaciones</span> </a>
+            </div>
+         </div>    
+     </li>
+  {% else %}    
+     <p>No hay carreras en esta categoría</p>    
+ {% endfor %}
+         </ul>
+ </li>
+ </ul>
+</div>
+ <div class="clear"></div>   
+{% endblock %} 

@@ -1,0 +1,40 @@
+{% extends "AppCorredoresRiojaBundle:Default:base.html.twig" %}
+
+{% block pestanias %}
+    <div class="barra_menus">	
+      <div class="pestanias">
+        <div class="grupoPestanias">
+            <div class="pestaniaSel"><a href="{{path('portada')}}">{{ 'zonacorredores' | trans }}</a></div>
+	  <div class="pestaniaNoSel"><a href="{{ path('organizacion_portada') }}">{{ 'zonaorganizadores' | trans }}</a></div>
+          <div class="pestaniaNoSel"><a href="../../admin">Intranet</a></div>
+        </div>
+      </div>
+{% endblock %}
+
+{% block menu %}
+ <div id="menu" >
+        <ul>
+          <li>
+            <a href="{{ path('portada') }}">{{ 'portada' | trans }}<br/></a>
+          </li>
+          <li>
+            <a href="{{ path('show_carreras') }}">{{ 'carreras' | trans }}<br/></a>
+          </li>
+          <li>
+        <a href="{{ path('show_miscarreras') }}">{{ 'miscarreras' | trans }}<br/></a>
+          </li>
+          {% if app.user and is_granted('ROLE_CORREDOR') %} 
+              <li><a href="{{ path('corredor_perfil') }}">{{ 'perfil' | trans }}<br/></a></li>
+          {% endif %}
+          <li>
+            {% if app.user and is_granted('ROLE_CORREDOR') %}  
+            <a href="{{ path('corredor_logout') }}">Logout<br/></a>
+            {% else %}
+            <a href="{{ path('corredor_login') }}">Login<br/></a>
+            {% endif %}
+          </li>
+        </ul>
+        <div style="clear: left;"></div>
+      </div>
+    </div>     
+{% endblock %}    

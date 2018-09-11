@@ -1,0 +1,76 @@
+{% extends "AppCorredoresRiojaBundle:Default:corredores1.html.twig" %}
+
+{% block migas %}
+<div class="clear"></div> 
+{% endblock %}
+
+{% block English %}<a href="{{ path('show_miscarreras.en') }}">{% endblock %}
+{% block Español %}<a href="{{ path('show_miscarreras.es') }}">{% endblock %}
+                       
+{% block body %}
+    
+ {% for mensaje in app.session.flashbag.get('info') %} 
+       <p clas="info">{{ mensaje }}</p> 
+   {% endfor %}    
+    
+ {% if app.user and is_granted('ROLE_CORREDOR') %}
+     <p> Hola {{ app.user.name }}, a continuación se muestran las carreras en las que estás inscrito
+         y las carreras que has disputado. </p>
+ {% endif %}    
+    
+ <h2>Carreras por disputar</h2>
+ <div class="centro"/>
+ <ul>
+     <li class="columna">
+         <ul>
+ {% for carrera in carreraspordisputar %}
+     
+     <li class="celda">
+         <div class="parteCelda">
+             <img src="{{ asset('bundles/appcorredoresrioja/images/' ~ carrera.imagen) }}"/>
+         </div>
+         <div class="parteCelda2">
+             <h3><a href="{{ path('show_carrera', {'slug':carrera.slug}) }}">{{ carrera.nombre }}</a></h3>
+             <p>{{ carrera.fechacelebracion | date('Y/m/d h:m') }}</p>
+             <div style="float:right; padding:10px 5px">
+                      <a style="padding:5px 8px 5px 10px;background:#5C7E6D;color:#FFF" 
+                         href="{{ path('desapuntar_corredor', {'slug':carrera.slug}) }}" ><span>Desapuntarse</span> </a>
+            </div>
+         </div>    
+     </li>
+ {% else %}    
+     <p> No tienes carreras por disputar.</p>
+ {% endfor %}
+ </ul>
+     </li>
+ </ul>
+</div>
+ <div class="clear"></div>   
+ <h2>Carreras disputadas</h2>
+<div class="centro"/>
+ <ul>
+     <li class="columna">
+         <ul>
+ {% for carrera in carrerasdisputadas %}
+     <li class="celda">
+         <div class="parteCelda">
+             <img src="{{ asset('bundles/appcorredoresrioja/images/' ~ carrera.imagen) }}"/>
+         </div>
+         <div class="parteCelda2">
+             <h3><a href="{{ path('show_carrera', {'slug':carrera.slug}) }}">{{ carrera.nombre }}</a></h3>
+             <p>{{ carrera.fechacelebracion | date('Y/m/d h:m') }}</p>
+             <div style="float:right; padding:10px 5px">
+                      <a style="padding:5px 8px 5px 10px;background:#5C7E6D;color:#FFF" 
+                         href="{{ path('show_carrera', {'slug':carrera.slug}) }}" ><span>Clasificaciones</span> </a>
+            </div>
+         </div>    
+     </li>
+ {% else %}    
+     <p> Todavía no has disputado ninguna carrera.</p>    
+ {% endfor %}
+         </ul>
+ </li>
+ </ul>
+</div>
+ <div class="clear"></div>   
+{% endblock %} 

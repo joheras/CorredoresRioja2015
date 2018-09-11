@@ -1,0 +1,42 @@
+{% extends "AppCorredoresRiojaBundle:Default:corredores1.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/appcorredoresrioja/css/entrada.css')}}" rel="stylesheet" media="all" type="text/css">
+{% endblock %}
+
+{% block English %}<a href="{{ path('corredor_login.en') }}">{% endblock %}
+{% block Español %}<a href="{{ path('corredor_login.es') }}">{% endblock %}
+
+{% block body %}
+    <div class="clear"> </div>   
+    
+    <h1>Acceso de corredores registrados</h1>
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+     
+    <form action="{{ path('corredor_login_check') }}" method="post" class="izda">
+        <label for="username">Username (DNI):</label>
+        <input type="text" id="username" name="_username" value="{{ last_username }}" /> <br/>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="_password" /><br/>
+
+        <button type="submit">Login</button>
+    </form>
+
+
+    <div class="nuevo izda">
+        <div>
+            <p style="font-weight:bold; margin-top:5px">Nuevo Corredor.</p>
+            <p style="margin-top:5px;line-height:1.4em;">Para poder inscribirte en las carreras es necesario registrarse. </p>
+        </div>
+
+        <div  class="registrob">
+            <a href="{{ path('registro') }}">REGISTRESE</a>
+        </div> 
+    </div>	     
+    <div class="clear"> </div>   
+{% endblock %} 

@@ -1,0 +1,80 @@
+{% extends "AppCorredoresRiojaBundle:Default:corredores1.html.twig" %}
+
+
+
+{% block English %}<a href="{{ path('show_carrera.en',{'slug':carrera.organizador.slug}) }}">{% endblock %}
+{% block Español %}<a href="{{ path('show_carrera.es',{'slug':carrera.organizador.slug}) }}">{% endblock %}
+
+
+    {% block migas %}
+        <div class="clear"></div> 
+    {% endblock %}
+
+    {% block body %}
+        <div class="centro">
+            <h1>{{ carrera.nombre }}</h1>
+            <div class="parteCelda">
+                <img src="{{ asset('bundles/appcorredoresrioja/images/' ~ carrera.imagen) }}"/>
+            </div>
+            <div class="parteCelda2">
+                <p>{{ carrera.descripcion }}</p>
+                <p>Fecha celebración: {{ carrera.fechacelebracion | date('Y/m/d h:m') }}
+                <p>Distancia: {{ carrera.distancia }}</p>
+                <p>Organiza: <a href="{{ path('show_organizacion',{'slug':carrera.organizador.slug}) }}">{{ carrera.organizador.nombre }}</a></p>  
+            </div>
+        </div>
+        <div class="clear"></div>   
+        <div class="centro">
+            {% if date(carrera.fechalimiteinscripcion) > date('now') %}
+                <h3>Tienes hasta el  {{ carrera.fechalimiteinscripcion | date('d \\d\\e M \\d\\e Y') }} para inscribirte. </h3>
+                <div style="float:right; padding:10px 5px">
+                    <a style="padding:5px 8px 5px 10px;background:#5C7E6D;color:#FFF" 
+                       href="{{ path('inscribir_corredor', {'slug':carrera.slug}) }}" ><span>Inscríbete</span> </a>
+                </div>
+                <div class="clear"></div>   
+                <h3>Inscritos:</h3>
+                {% for participante in corredores %}
+                    {{ participante.corredor.nombre }}  {{ participante.corredor.apellidos }} <br/>
+                {% else %}
+                    Todavía no hay inscritos en esta carrera.
+                {% endfor %} 
+
+
+            {% else %}
+                <h3>Lo sentimos, ya no te puedes inscribir a esta carrera.</h3>   
+                <div class="clear"></div> 
+                <h3>Clasificación:</h3>   
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Posición</th>
+                            <th>Nombre</th>
+                            <th>Tiempo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for participante in corredores %}
+                            <tr>
+                                <td>
+                                    {{ loop.index }}
+                                </td>
+                                <td>   
+                                    {{ participante.corredor.nombre }}  {{ participante.corredor.apellidos }} <br/>
+                                </td>
+                                <th>
+                                    {{ participante.tiempo | date('h:i:s')}}
+                                </th>
+                            </tr>
+                        {% endfor %} 
+                    </tbody>
+                </table>
+
+            {% endif %}
+        </div>
+
+
+
+
+
+        <div class="clear"> </div>   
+    {% endblock %} 

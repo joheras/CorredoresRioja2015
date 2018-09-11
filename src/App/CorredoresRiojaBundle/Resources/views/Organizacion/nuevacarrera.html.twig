@@ -1,0 +1,18 @@
+{% extends "AppCorredoresRiojaBundle:Organizacion:organizaciones1.html.twig" %}
+
+{% block English %}<a href="{{ path('anadir_carrera.en') }}">{% endblock %}
+{% block Español %}<a href="{{ path('anadir_carrera.es') }}">{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/appcorredoresrioja/css/formulario.css')}}" rel="stylesheet" media="all" type="text/css">
+{% endblock %}
+
+{% block body %}
+        <div class="clear"> </div>   
+    <h1>Nueva Carrera</h1>
+    <form action="{{ path('anadir_carrera') }}" method="post" {{ form_enctype(formulario) }}>
+    {{ form_widget(formulario) }}
+    <input class="button" type="submit" value="Crear carrera"/>
+   </form>
+    <div class="clear"> </div>   
+{% endblock %} 

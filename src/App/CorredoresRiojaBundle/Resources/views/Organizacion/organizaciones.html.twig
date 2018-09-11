@@ -1,0 +1,43 @@
+{% extends "AppCorredoresRiojaBundle:Default:base.html.twig" %}
+
+{% block pestanias %}
+    <div class="barra_menus">	
+      <div class="pestanias">
+        <div class="grupoPestanias">
+            <div class="pestaniaNoSel"><a href="{{path('portada')}}">{{ 'zonacorredores' | trans }}</a></div>
+	  <div class="pestaniaSel"><a href="{{ path('organizacion_portada') }}">{{ 'zonaorganizadores' | trans }}</a></div>
+          <div class="pestaniaNoSel"><a href="../admin">Intranet</a></div>
+        </div>
+      </div>
+{% endblock %}
+
+{% block menu %}
+ <div id="menu" >
+        <ul>
+          <li>
+            <a href="{{ path('organizacion_portada') }}">{{ 'portada' | trans }}<br/></a>
+          </li>
+          <li>
+            <a href="{{ path('organizacion_perfil') }}">{{ 'perfil' | trans }}<br/></a>
+          </li>
+          <li>
+        <a href="{{ path('anadir_carrera') }}">{{ 'anadircarrera' | trans }}<br/></a>
+          </li>
+          <li>
+        <a href="{{ path('modificarcarreras') }}">{{ 'modificarcarrera' | trans }}<br/></a>
+          </li>
+           <!--<li>
+        <a href="{# path('actualizar_clasificaciones') #}">Actualizar Clasificaciones<br/></a>
+          </li>-->
+          <li>
+          {% if app.user and is_granted('ROLE_ORGANIZADOR') %}  
+            <a href="{{ path('organizacion_logout') }}">Logout<br/></a>
+            {% else %}
+            <a href="{{ path('organizacion_login') }}">Login<br/></a>
+            {% endif %}
+          </li>
+        </ul>
+        <div style="clear: left;"></div>
+      </div>
+    </div>     
+{% endblock %}    
