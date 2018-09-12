@@ -1,6 +1,6 @@
 services:
     carrerasrepository:
-         alias: carrerasrepository.doctrine
+         alias: carrerasrepository.inmemory
     carrerasrepository.inmemory:
          class: App\CorredoresRiojaDomain\Repository\Infrastructure\InMemoryCarreraRepository
          public: false
@@ -10,7 +10,7 @@ services:
          arguments: [ "@doctrine.orm.entity_manager" ]      
          
     organizacionesrepository:
-         alias: organizacionesrepository.doctrine
+         alias: organizacionesrepository.inmemory
     organizacionesrepository.inmemory:
          class: App\CorredoresRiojaDomain\Repository\Infrastructure\InMemoryOrganizacionRepository
          public: false
@@ -20,7 +20,7 @@ services:
          arguments: [ "@doctrine.orm.entity_manager" ]        
     
     participantesrepository:
-         alias: participantesrepository.doctrine
+         alias: participantesrepository.inmemory
     participantesrepository.inmemory:
          class: App\CorredoresRiojaDomain\Repository\Infrastructure\InMemoryParticipanteRepository
          public: false
@@ -30,7 +30,7 @@ services:
          arguments: [ "@doctrine.orm.entity_manager" ]     
     
     corredoresrepository:
-         alias: corredoresrepository.doctrine
+         alias: corredoresrepository.inmemory
     corredoresrepository.inmemory:
          class: App\CorredoresRiojaDomain\Repository\Infrastructure\InMemoryCorredorRepository
          public: false
