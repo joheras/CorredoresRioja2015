@@ -20,7 +20,7 @@ class InMemoryParticipanteRepository implements IParticipanteRepository {
                     new \DateTime("2015-06-15"), "10 km", new \DateTime("2015-06-14"), 50, "anguiano.jpg", $org2);
         $carrera2 = new Carrera(2, "Matutrail", "VI Matutrail", 
                     new \DateTime("2015-09-15"), "7 km", new \DateTime("2015-09-18"), 30, "matutrail.jpg", $org1);
-        $corredor1 = new Corredor(16613711, 'Jonathan', 'Heras', 'joheras@gmail.com', '1234', 'Calle Falsa', new \DateTime("1985-08-15"));
+        $corredor1 = new Corredor(00000000, 'Jonathan', 'Heras', 'joheras@gmail.com', '1234', 'Calle Falsa', new \DateTime("1985-08-15"));
         $corredor2 = new Corredor(11111111, 'Eloy', 'Mata', 'eloy.mata@unirioja.es', '1234', 'Ed Vives', new \DateTime("1970-06-07"));
         $corredor3 = new Corredor(22222222, 'Pepe', 'Perez', 'pepe.perez@gmail.com', '1234', 'Luis de Ulloa', new \DateTime("1980-02-23"));
         
