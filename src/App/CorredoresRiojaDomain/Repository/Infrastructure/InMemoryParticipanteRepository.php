@@ -17,7 +17,7 @@ class InMemoryParticipanteRepository implements IParticipanteRepository {
         $org1 = new Organizacion("Ayuntamiento Matute", "El ayuntamiento de matute", "matute@gmail.com", "matute");
         $org2 = new Organizacion("Maraton Rioja", "El club maratón rioja", "mrioja@gmail.com", "mrioja");
         $carrera1 = new Carrera(1, "Carrera Montes Anguiano", "Primera carrera por los montes de Anguiano", 
-                    new \DateTime("2015-06-15"), "10 km", new \DateTime("2015-06-14"), 50, "anguiano.jpg", $org2);
+                    new \DateTime("2015-06-15"), "10 km", new \DateTime("2019-06-14"), 50, "anguiano.jpg", $org2);
         $carrera2 = new Carrera(2, "Matutrail", "VI Matutrail", 
                     new \DateTime("2015-09-15"), "7 km", new \DateTime("2015-09-18"), 30, "matutrail.jpg", $org1);
         $corredor1 = new Corredor(00000000, 'Jonathan', 'Heras', 'joheras@gmail.com', '1234', 'Calle Falsa', new \DateTime("1985-08-15"));
